@@ -1,0 +1,19 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<ul id="js-note-list">
+    <li><button id="js-new-note">New</button></li>
+</ul>
+
+<div id="js-new-note-box" style="display:none;">
+    <input type="text" id="js-note-title" placeholder="title"><br>
+    <textarea id="js-note-content" placeholder="title"></textarea><br>
+    <button id="js-create-note">Create</button>
+</div>
+{% endblock %}
+
+{% block requirejs %}
+{{ include('::_requirejs.html.twig', {
+    page: 'app/boot/home'
+}) }}
+{% endblock %}

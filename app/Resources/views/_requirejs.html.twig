@@ -1,0 +1,26 @@
+<script src="{{ asset('components/requirejs/require.js') }}"></script>
+<script>
+    require.config({
+        baseUrl: '{{ app.request.basePath }}/assets/js',
+        {% if app.debug %}urlArgs: "bust=" +  (new Date()).getTime(){% endif %}
+    });
+
+    require(['common'], function (common) {
+        {% if app.debug -%}
+        require(['flight/lib/debug'], function(debug) {
+            debug.enable(true);
+            {% if page is defined -%}
+            require(['{{ page }}'], function(initialize) {
+                initialize();
+            });
+            {% endif -%}
+        });
+        {%- else -%}
+        {% if page -%}
+        require(['{{ page }}'], function(initialize) {
+            initialize();
+        });
+        {% endif -%}
+        {% endif %}
+    });
+</script>

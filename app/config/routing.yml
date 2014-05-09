@@ -1,0 +1,10 @@
+wouter_j_note:
+    resource: "@WouterJNoteBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+wouter_j_app:
+    resource: "@WouterJAppBundle/Controller/"
+    type:     annotation
+    prefix:   /
+

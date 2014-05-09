@@ -1,0 +1,11 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}WouterJNoteBundle:Note:getAll{% endblock %}
+
+{% block body %}
+    <ul id="js-note-list">
+    {% for note in notes %}
+        <li><h1>{{ note.title }}</h1></li>
+    {% endfor %}
+    </ul>
+{% endblock %}
